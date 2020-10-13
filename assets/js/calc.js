@@ -99,3 +99,32 @@ document.getElementById("markerA_segment").innerHTML = (parseInt(markerA_c * 10)
 document.getElementById("markerA_amountsegment").innerHTML = parseInt(markerA_segment);
 document.getElementById("markerA_read").innerHTML = markerA_read;
 }
+
+
+function stair_A(){
+let height_stair = document.getElementById('StairCalk1Height').value;//высота лестницы
+let long_stair = document.getElementById('StairCalk1Long').value;//глубина ступени
+let height_step = document.getElementById('StairCalk1H1').value;// высота подступенка
+let width = document.getElementById('StairCalk1Width').value;//ширина перемычки
+let number = document.getElementById('StairCalk1Number').value;//количество косоуров
+let price_p = document.getElementById('StairCalk1Price_p').value;//цена профиля за м/п
+
+//let price = document.getElementById('StairCalk1Price').value;//стоимость конструкции
+//let number_step = document.getElementById('StairCalk1NumberStep').value;//количество ступеней
+//let number_p = document.getElementById('StairCalk1N1').value;//количество профиля
+
+let number_step = height_stair / height_step
+
+markerA_segment = markerA_b -1
+
+markerA_c = markerA_a / markerA_segment
+
+while (count <= markerA_b ) {
+	markerA_read = markerA_read + parseInt(count + "-" + ((count - 1) * markerA_c) + "; ");
+	count = count + 1;
+}
+
+document.getElementById("StairCalc1NumberStep").innerHTML = (parseInt(number_step * 10)) / 10;
+document.getElementById("markerA_amountsegment").innerHTML = parseInt(markerA_segment);
+document.getElementById("markerA_read").innerHTML = markerA_read;
+}
